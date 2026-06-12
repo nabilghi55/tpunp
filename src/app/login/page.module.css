@@ -1,0 +1,140 @@
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  min-height: calc(100vh - 140px);
+}
+
+.loginCard {
+  composes: glass-panel from global;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.cardHeader {
+  text-align: center;
+}
+
+.cardHeader h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.cardHeader p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.errorAlert {
+  background: var(--error-glow);
+  border: 1px solid var(--error);
+  color: var(--error);
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.1rem;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.1);
+}
+
+.submitBtn {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cardFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.cardFooter a {
+  color: var(--accent-gold);
+}
+
+.hint {
+  font-size: 0.75rem !important;
+  color: var(--text-muted) !important;
+  margin-top: 1rem;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+  .loginCard {
+    padding: 2rem;
+  }
+}

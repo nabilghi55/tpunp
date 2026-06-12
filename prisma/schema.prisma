@@ -1,0 +1,61 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  passwordHash  String
+  role          String         @default("ALUMNI") // "ALUMNI" | "ADMIN"
+  status        String         @default("PENDING") // "PENDING" | "APPROVED" | "REJECTED"
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  profile       AlumniProfile?
+  jobs          JobListing[]
+  announcements Announcement[]
+}
+
+model AlumniProfile {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nim            String   @unique
+  graduationYear Int      // Year of graduation / Angkatan
+  phone          String?
+  currentCompany String?
+  jobTitle       String?
+  location       String?
+  linkedinUrl    String?
+  bio            String?
+  photo          String?  // Profile image URL or data URL
+  updatedAt      DateTime @updatedAt
+}
+
+model JobListing {
+  id             String   @id @default(uuid())
+  title          String
+  company        String
+  description    String
+  location       String
+  type           String   // "FULL_TIME", "PART_TIME", "CONTRACT", "INTERNSHIP"
+  salary         String?
+  contactEmail   String
+  createdAt      DateTime @default(now())
+  postedByUserId String
+  postedByUser   User     @relation(fields: [postedByUserId], references: [id], onDelete: Cascade)
+}
+
+model Announcement {
+  id             String   @id @default(uuid())
+  title          String
+  content        String
+  coverImage     String?
+  createdAt      DateTime @default(now())
+  postedByUserId String
+  postedByUser   User     @relation(fields: [postedByUserId], references: [id], onDelete: Cascade)
+}

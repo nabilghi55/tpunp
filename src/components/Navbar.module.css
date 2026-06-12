@@ -1,0 +1,132 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(243, 251, 248, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(13, 62, 47, 0.08);
+  box-shadow: 0 2px 15px rgba(13, 62, 47, 0.03);
+  transition: all 0.3s ease;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logoGold {
+  color: var(--accent-mint);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+}
+
+.logoWhite {
+  color: var(--accent-green);
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: var(--accent-mint);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--accent-green);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.navAuth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginBtn {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover {
+  color: var(--accent-mint);
+}
+
+.registerBtn {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent-green);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-green);
+  box-shadow: 0 4px 10px rgba(13, 62, 47, 0.15);
+}
+
+.registerBtn:hover {
+  background: var(--accent-green-hover);
+  border-color: var(--accent-green-hover);
+  box-shadow: 0 6px 15px rgba(13, 62, 47, 0.25);
+  transform: translateY(-1px);
+}
+
+.dashboardBtn {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  background: rgba(13, 62, 47, 0.05);
+  border: 1px solid rgba(13, 62, 47, 0.15);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(13, 62, 47, 0.02);
+}
+
+.dashboardBtn:hover {
+  background: rgba(13, 62, 47, 0.1);
+  border-color: var(--accent-green);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+}
