@@ -49,7 +49,7 @@ export default async function JobsPage() {
     salary: job.salary,
     contactEmail: job.contactEmail,
     createdAt: job.createdAt.toISOString(),
-    postedByUserName: job.postedByUser.name,
+    postedByUserName: job.postedByUser?.name || 'Alumni',
   }));
 
   return (
